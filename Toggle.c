@@ -4,20 +4,30 @@ int numberOne;
 int numberTwo;
 int numberPosition;
 int numberResult;
+int numberOfBits;
 
 int main (void)
 {
 	printf("Enter the number one : ");
 	scanf("%d", &numberOne);
 
-	printf("Enter the position Number : ");
+	printf("Enter the Position Number : ");
 	scanf("%d", &numberPosition);
 
-	numberTwo = 1 << (numberPosition - 1);
+	printf("Enter the number Of Bits : ");
+	scanf("%d", &numberOfBits);
+
+	numberTwo = ~0;
+
+	numberTwo = numberTwo << numberOfBits;
+
+	numberTwo = ~numberTwo;
+
+	numberTwo = numberTwo << (numberPosition - numberOfBits);
 
 	numberResult = numberOne ^ numberTwo;
 
 	printf("Result : %d\n", numberResult);
-	
+
 	return(0);
 }
